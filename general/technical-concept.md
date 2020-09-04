@@ -482,5 +482,3 @@ This task breakdown describes the scope of **1st edition of Yagna**.
   </tbody>
 </table>
 
-
-

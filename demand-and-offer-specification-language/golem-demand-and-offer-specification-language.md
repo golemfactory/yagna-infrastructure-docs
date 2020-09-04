@@ -49,14 +49,15 @@ Note that there may be various naming conventions proposed to bring structure an
 
 * A **hierarchic namespace system** can be defined to categorize property names into “topic areas”. An illustration of such structure \(derived from programming languages like Java or C\#, with namespace names concatenated by ‘.’ characters\) is presented further down this document.
 * A naming convention can be proposed to model and express **“parametric/dynamic” properties**, which are in fact pseudo-functions - may resolve to different values depending on “parameter” included in the property name. Such “parameter” may be specified in a constraint/filtering expression, while a resolver engine would include modules that would parse the property names to “extract” parameters and resolve the value accordingly. So following rules are in force:
+
   * The property value resolution can only be performed by the node which declared the property \(ie. if a dynamic property is declared as supported by an issuer of an Offer, the value of this property for a parameter included in Demand’s constraint expression can only be resolved by the issuer of the Offer.\)
   * A Demand/Offer matching resolver implementations and all mechanisms leveraging property resolution need to be aware of the rule above, so that the resolution of dynamic properties is delegated to the right nodes.
 
- Consider following constraint:
+  Consider following constraint:
 
- \(golem.inf.net.ipv4.tcp\_visible{www.onet.pl:443}=true\)
+  \(golem.inf.net.ipv4.tcp\_visible{www.onet.pl:443}=true\)
 
- The semantics of such sample property would be defined so that the literal specified between {} brackets is interpreted as a “url” “parameter” to a function which verifies network visibility of this url via TCP protocol.
+  The semantics of such sample property would be defined so that the literal specified between {} brackets is interpreted as a “url” “parameter” to a function which verifies network visibility of this url via TCP protocol.
 
 ### Property syntax
 
@@ -90,7 +91,7 @@ The properties flowing through Golem implementation may carry additional metadat
 
 * An aspect is a syntactic construct which is meant to assign additional attributes to properties themselves. When no aspect is specified, the literal refers to the value of the property itself.
 * The aspects would likely be used by host software \(ie. constraint parsers/resolvers\) to indicate “context” information related to properties. The aspects would most likely be assigned “from outside”, ie. by resolution engine rather than by Demand or Offer designer.
-* The aspects can be referred to by constraint expressions \(see below in [Property Referencing]()\)
+* The aspects can be referred to by constraint expressions \(see below in [Property Referencing](golem-demand-and-offer-specification-language.md)\)
 
 One use would be to define some semantics to express external attestation of property value against an entity being described. Eg. a service provider declares itself as having a reputation score granted to him by an external party. This score is “attested” by eg. a signed token issued by external provider for the provider, which can be shared with a requestor. The “aspects” would allow to refer to this signed token information from the Demand/Offer description language.
 
@@ -195,13 +196,13 @@ The value-less property would be indicated in property set by:
 
 **Value name wildcards**
 
-In scenarios where property mechanism is leveraged to implement a “pseudo-function” \(see [Property Naming]()\), the property-issuing side needs to indicate that a “pseudo-function” is supported. It does this by declaring a value-less property with ‘\*’ wildcard. For example indicating a following property in Offer property set:
+In scenarios where property mechanism is leveraged to implement a “pseudo-function” \(see [Property Naming](golem-demand-and-offer-specification-language.md)\), the property-issuing side needs to indicate that a “pseudo-function” is supported. It does this by declaring a value-less property with ‘\*’ wildcard. For example indicating a following property in Offer property set:
 
 golem.inf.net.ipv4.tcp\_visible{\*}
 
 Indicates, that the Provider node supports a pseudo-function capable of verifying network visibility of any URL specified in Demand’s constraint filter expression, eg.:
 
- \(golem.inf.net.ipv4.tcp\_visible{www.onet.pl:443}=true\)
+\(golem.inf.net.ipv4.tcp\_visible{www.onet.pl:443}=true\)
 
 ### Property and aspect space expressed in Golem notation
 
@@ -223,7 +224,7 @@ In the Constraint expressions, the properties are referenced using following gra
 
 Specifying no aspect means we are referencing the property value.
 
-@&lt;typecode&gt; is optional in property reference and implies a specific type of constraint value \(this determines the behaviour of operators\). If a type code is not specified, the type of property as declared in Demand/Offer determines the operator behaviour. Type codes are indicated in [Property types]() section.
+@&lt;typecode&gt; is optional in property reference and implies a specific type of constraint value \(this determines the behaviour of operators\). If a type code is not specified, the type of property as declared in Demand/Offer determines the operator behaviour. Type codes are indicated in [Property types](golem-demand-and-offer-specification-language.md) section.
 
 **Example 1**
 
@@ -273,7 +274,7 @@ filter=\(&
 
 Note how an aspect of reputation score is referenced to accept only scores which are properly signed by a specific “attestation party”.
 
-We propose using the RFC 4515 \(LDAP Search Filter Strings, see [References]()\) with few enhancements as the specification for the filter syntax. It seems powerful enough to indicate a sufficiently broad class of service requirements, but limited enough to reduce potential security threats.
+We propose using the RFC 4515 \(LDAP Search Filter Strings, see [References](golem-demand-and-offer-specification-language.md)\) with few enhancements as the specification for the filter syntax. It seems powerful enough to indicate a sufficiently broad class of service requirements, but limited enough to reduce potential security threats.
 
 The proposed subset LDAP Search Filter notation must include following features:
 
@@ -370,25 +371,25 @@ function price\(resources, usage, context\)
 
 {
 
- var endPrice = 0;
+var endPrice = 0;
 
- var transactions = usage\["golem.usage.transactions"\];
+var transactions = usage\["golem.usage.transactions"\];
 
- var gbSecs = usage\["golem.usage.mem.gib\_sec"\];
+var gbSecs = usage\["golem.usage.mem.gib\_sec"\];
 
- if\(transactions &gt; 1000000\) {
+if\(transactions &gt; 1000000\) {
 
- endPrice += \(transactions - 1000000\) \* 20 / 1000000;
+endPrice += \(transactions - 1000000\) \* 20 / 1000000;
 
- }
+}
 
- if\(gbSecs &gt; 400000\) {
+if\(gbSecs &gt; 400000\) {
 
- endPrice += \(gbSecs - 400000\) \* 1667 / 100000000;
+endPrice += \(gbSecs - 400000\) \* 1667 / 100000000;
 
- }
+}
 
- return endPrice / 100; // price in dollars
+return endPrice / 100; // price in dollars
 
 }
 
@@ -456,13 +457,13 @@ filter=\(&
 
 \(golem.svc.version=1.1.3\)
 
- \(golem.inf.cpu.cores&gt;2\)
+\(golem.inf.cpu.cores&gt;2\)
 
- \(golem.inf.mem.gib&gt;32\)
+\(golem.inf.mem.gib&gt;32\)
 
- \(golem.inf.gpu.vendor=NVidia\)
+\(golem.inf.gpu.vendor=NVidia\)
 
- \(golem.node.geo.country\_code=pl\)
+\(golem.node.geo.country\_code=pl\)
 
 \)
 
@@ -758,12 +759,12 @@ The main purpose of Demand and Offer specifications is to enable matching of Req
 
 The Agreement shall be an artifact including following elements:
 
-*  Timestamp
-*  Agreement Id
-*  Content of Demand
-*  Content of Offer
-*  Attachments
-*  Requestor Signature of the above \(includes signature timestamp\)
+* Timestamp
+* Agreement Id
+* Content of Demand
+* Content of Offer
+* Attachments
+* Requestor Signature of the above \(includes signature timestamp\)
 * Provider Signature of the above \(includes signature timestamp\)
 * Confirmation of receipt by Requestor side \(signed, includes timestamp\)
 

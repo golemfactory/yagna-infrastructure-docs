@@ -37,14 +37,14 @@ The Market API has two interfaces, one on Requestor side and one on Provider sid
   </thead>
   <tbody>
     <tr>
-      <td style="text-align:left"><a href>Observation</a>
+      <td style="text-align:left"><a href="golem-market-api.md">Observation</a>
       </td>
       <td style="text-align:left">Each Node is able to scan the market for circulating Demands and Offers
         meeting given filter criteria.</td>
       <td style="text-align:left"></td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href>Discovery</a>
+      <td style="text-align:left"><a href="golem-market-api.md">Discovery</a>
       </td>
       <td style="text-align:left">Requestor publishes a Demand on the market, expecting to receive Proposals
         of potential <a href="https://docs.google.com/document/d/1tzMrhdBr9wiUXtSn1JO18MmIiP31dkMakdjStnF3eZY/edit#heading=h.jzr5wr9i4uh5">matching</a> Offers.</td>
@@ -52,23 +52,24 @@ The Market API has two interfaces, one on Requestor side and one on Provider sid
       style="text-align:left">Provider publishes Offers symmetrically.</td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href>Negotiation</a>
+      <td style="text-align:left"><a href="golem-market-api.md">Negotiation</a>
       </td>
-      <td style="text-align:left">From the initial set of received Offer <a href>Proposals</a>, the Requestor
-        selects Provider candidates, and begins <b>direct</b> interaction with them
-        by sending the Proposals, with Demand potentially adjusted to the receiving
-        Provider&#x2019;s Offer (as, an Offer may eg. place some <a href="https://docs.google.com/document/d/1tzMrhdBr9wiUXtSn1JO18MmIiP31dkMakdjStnF3eZY/edit#heading=h.8a2umgq9ob4s">constraints</a> on
-        Requestor&#x2019;s <a href="https://docs.google.com/document/d/1tzMrhdBr9wiUXtSn1JO18MmIiP31dkMakdjStnF3eZY/edit#heading=h.r6oufnsb6bu6">properties</a>,
-        so the bespoke Demand should take this into account, etc.)</td>
+      <td style="text-align:left">From the initial set of received Offer <a href="golem-market-api.md">Proposals</a>,
+        the Requestor selects Provider candidates, and begins <b>direct</b> interaction
+        with them by sending the Proposals, with Demand potentially adjusted to
+        the receiving Provider&#x2019;s Offer (as, an Offer may eg. place some
+        <a
+        href="https://docs.google.com/document/d/1tzMrhdBr9wiUXtSn1JO18MmIiP31dkMakdjStnF3eZY/edit#heading=h.8a2umgq9ob4s">constraints</a>on Requestor&#x2019;s <a href="https://docs.google.com/document/d/1tzMrhdBr9wiUXtSn1JO18MmIiP31dkMakdjStnF3eZY/edit#heading=h.r6oufnsb6bu6">properties</a>,
+          so the bespoke Demand should take this into account, etc.)</td>
       <td style="text-align:left">
-        <p>Provider listens for Demand <a href>Proposals</a>, to which it may respond
-          with adjusted Offer (e.g. it is possible to provide a better price for
-          a known Requestor, etc.)</p>
+        <p>Provider listens for Demand <a href="golem-market-api.md">Proposals</a>,
+          to which it may respond with adjusted Offer (e.g. it is possible to provide
+          a better price for a known Requestor, etc.)</p>
         <p>The Proposal exchange may be iterative.</p>
       </td>
     </tr>
     <tr>
-      <td style="text-align:left"><a href>Agreement</a>
+      <td style="text-align:left"><a href="golem-market-api.md">Agreement</a>
       </td>
       <td style="text-align:left">
         <p>In a successful negotiation scenario Requestor receives a Proposal with
@@ -103,12 +104,12 @@ Market API Implementations must depend on synchronized clock mechanism. This is 
 
 #### Shallow Scan vs Deep Scan
 
-The Observation functionality of the Market API is provided by the **Scan** family of operations, which is meant to allow the Golem Node logic to perform queries on the Demands & Offers currently circulating on the market. The [**BeginScan**]() operation initiates a scanning activity by accepting filtering criteria and returning Scan Id. The results are aggregated by the Market API implementation and can be collected by calling [**CollectScanResults**](). Finally, a scanning activity is closed by a call to [**EndScan**]().
+The Observation functionality of the Market API is provided by the **Scan** family of operations, which is meant to allow the Golem Node logic to perform queries on the Demands & Offers currently circulating on the market. The [**BeginScan**](golem-market-api.md) operation initiates a scanning activity by accepting filtering criteria and returning Scan Id. The results are aggregated by the Market API implementation and can be collected by calling [**CollectScanResults**](golem-market-api.md). Finally, a scanning activity is closed by a call to [**EndScan**](golem-market-api.md).
 
 Depending on the implementation of the Market mechanisms, the **Scan** operations may require a variable amount of effort/resources depending on the scan “range”. Therefore two grades of **Scan** implementation can be considered:
 
-* A “shallow”/”passive” scan is a more efficient/lightweight implementation of the market observation feature. This comes at the cost of results being potentially incomplete. For example, in a market implementation where Demands/Offers are distributed in a decentralized network and maintained in a DHT, the shallow scan may require only viewing the Node’s own DHT Table, or at most - the closest neighbours. This form of market observation is expected to be “cheap”. **Note:** This grade is part of Market API [Capability Level]() 2.
-* A “deep”/”active” scan implementation requires dedicated search/filter capability that is expected to allow querying the whole network for results. Naturally, for some market implementations, this may be time and effort consuming and would require a dedicated protocol. The benefit of the deep scan is - the results are complete, i.e. regardless of how small a set of matching results is, and how “far” it is in the network - the deep scan is expected to locate and return this set. **Note:** This grade is part of Market API [Capability Level]() 3.
+* A “shallow”/”passive” scan is a more efficient/lightweight implementation of the market observation feature. This comes at the cost of results being potentially incomplete. For example, in a market implementation where Demands/Offers are distributed in a decentralized network and maintained in a DHT, the shallow scan may require only viewing the Node’s own DHT Table, or at most - the closest neighbours. This form of market observation is expected to be “cheap”. **Note:** This grade is part of Market API [Capability Level](golem-market-api.md) 2.
+* A “deep”/”active” scan implementation requires dedicated search/filter capability that is expected to allow querying the whole network for results. Naturally, for some market implementations, this may be time and effort consuming and would require a dedicated protocol. The benefit of the deep scan is - the results are complete, i.e. regardless of how small a set of matching results is, and how “far” it is in the network - the deep scan is expected to locate and return this set. **Note:** This grade is part of Market API [Capability Level](golem-market-api.md) 3.
 
 ### Market Interaction
 
@@ -152,7 +153,7 @@ The negotiation may require multiple iterations, however, each of the iterations
 
 **Dynamic Property Resolution in Discovery Phase**
 
-This is part of [Capability level]() 2. Some market implementations may allow for a more efficient resolution of dynamic Demand/Offer properties ー this may happen already in the Discovery phase.
+This is part of [Capability level](golem-market-api.md) 2. Some market implementations may allow for a more efficient resolution of dynamic Demand/Offer properties ー this may happen already in the Discovery phase.
 
 The Matching mechanism, when resolving the match relation for the specific Demand-Offer pair, is to detect the “dynamic” properties required \(via constraints\) by the other side. At this point, it is able to query the issuing node for those properties and submit the other side’s requested properties as the **context** of the query. For example:
 
@@ -175,7 +176,7 @@ In the Market API, the property value queries are routed by the Market implement
 * Query context \(and relevant properties of that party’s Demand/Offer\)
 * List of requested property names
 
-Implementation of “dynamic” property resolution in the Discovery phase increases the complexity of Market API implementation, therefore, this mechanism is classified as covered by Market API [Capability Level]() 2.
+Implementation of “dynamic” property resolution in the Discovery phase increases the complexity of Market API implementation, therefore, this mechanism is classified as covered by Market API [Capability Level](golem-market-api.md) 2.
 
 **Property Aspects**
 
@@ -183,7 +184,7 @@ As indicated in the [Demand&Offer Specification Language](https://docs.google.co
 
 The Property Aspect handling must be implemented via a scalable pattern of plugins, ie. new aspects can be implemented by providing aspect plugins, which can be added to Market API implementations.
 
-This mechanism is classified as Market API [Capability Level]() 2.
+This mechanism is classified as Market API [Capability Level](golem-market-api.md) 2.
 
 #### Agreement Phase - The “Handshake”
 
@@ -270,7 +271,7 @@ This is an “iterator” function - which reads a collection of Events which ha
   * Proposal \(with status indicating the current stage of Negotiation\) - this means that a Proposal can either be:
     * a “negotiation proposal” to which Provider is expected to respond with a CounterProposal\(\) or
     * An “agreement draft” to which Provider should respond via either ApproveAgreement\(\) or RejectAgreement\(\) \(see below\)
-  * PropertyQuery \(for [Dynamic Property Resolution in Discovery Phase]()\)
+  * PropertyQuery \(for [Dynamic Property Resolution in Discovery Phase](golem-market-api.md)\)
   * Agreement proposal - indicating that the Requestor is intending to strike a contract based on specific Demand and Offer objects.
 
 **Description:**
@@ -426,7 +427,7 @@ This is an “iterator” function - which reads a collection of Events which ha
 
 * Collection of Event objects or Timeout. The returned objects may belong to following classes:
   * Proposal \(with status indicating the current stage of Negotiation\)
-  * PropertyQuery \(for [Dynamic Property Resolution in Discovery Phase]()\)
+  * PropertyQuery \(for [Dynamic Property Resolution in Discovery Phase](golem-market-api.md)\)
 
 **Description:**
 
@@ -580,7 +581,7 @@ A method which allows querying the market for Demands/Offers currently published
 
 * The query is dispatched to the market and “scanning” is started. The results of the scan \(objects matching the specified criteria\) are aggregated by Market API module and can be received by calling CollectScanResults.
 
-**Note:** This method must be implemented for Market API [Capability Level]() 2.
+**Note:** This method must be implemented for Market API [Capability Level](golem-market-api.md) 2.
 
 ### CollectScanResults
 
@@ -603,7 +604,7 @@ Receive results of previously started scanning query.
 
 This is a **blocking operation**, ie. it will not return until expected messages arrive \(or the timeout expires\).
 
-**Note:** This method must be implemented for Market API [Capability Level]() 2.
+**Note:** This method must be implemented for Market API [Capability Level](golem-market-api.md) 2.
 
 ### EndScan
 
@@ -621,11 +622,11 @@ Ends a previously started market scanning action.
 
 * The running query is finished.
 
-**Note:** This method must be implemented for Market API [Capability Level]() 2.
+**Note:** This method must be implemented for Market API [Capability Level](golem-market-api.md) 2.
 
 ### RespondPropertyQuery
 
-A method which allows the node which had received a dynamic property query to respond with bespoke property values \(see [Dynamic Property Resolution in Discovery Phase]()\).
+A method which allows the node which had received a dynamic property query to respond with bespoke property values \(see [Dynamic Property Resolution in Discovery Phase](golem-market-api.md)\).
 
 **Input:**
 
@@ -643,7 +644,7 @@ Delivers the property values back to the Market implementation so that they can 
 
 **Note:** The property query responses may be submitted in “chunks”, ie. the responder may choose to resolve ‘quick’/lightweight’ properties faster and provide response sooner, while still working on more time-consuming properties in the background. Therefore the response contains both the resolved properties, as well as list of properties which responder knows still require resolution.
 
-This method must be implemented for Market API [Capability Level]() 2.
+This method must be implemented for Market API [Capability Level](golem-market-api.md) 2.
 
 ### GetAgreementContent
 

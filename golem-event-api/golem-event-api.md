@@ -12,7 +12,7 @@ The purpose of this paper is to define a logical API for handling events observe
 
 ## Event API
 
-The Event API is symmetric, ie. identical on both Requestor and Provider sides. Note that the Event Type sets received via Event API differ - the difference is indicated in the [Event Types]() section.
+The Event API is symmetric, ie. identical on both Requestor and Provider sides. Note that the Event Type sets received via Event API differ - the difference is indicated in the [Event Types](golem-event-api.md) section.
 
 The events published to client applications are aggregated by Subscription Id. This means that all events generated as a result of a specific Demand/Offer subscription - Market, Activity or Payment related - are available via the Subscription Id. The client applications are expected to route the incoming event objects to relevant modules for further processing.
 

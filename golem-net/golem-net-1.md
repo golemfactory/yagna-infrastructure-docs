@@ -1,10 +1,10 @@
 # Golem net
 
-## Abstract 
+## Abstract
 
 This document describes the high-level architecture of the proposed **golem-net** module, its feature set, responsibilities and interop with **golem-core** \(via the **net API**\).
 
-## Overview 
+## Overview
 
 * 1. **golem-net** is a modular networking stack library, which implements and exposes the **net API**,
   2. layers of the networking stack do not correspond to the OSI model directly and may span multiple layers of that model,
@@ -20,7 +20,7 @@ This document describes the high-level architecture of the proposed **golem-net*
   12. **golem-net** can be compiled and utilized on modern Linux, macOS and Windows operating systems,
   13. the library is implemented in Rust. 
 
-## Components 
+## Components
 
 * 1. OSI layer 1-4\(+\) protocols:
      * hardware agnostic,
@@ -57,7 +57,7 @@ This document describes the high-level architecture of the proposed **golem-net*
      * VPN \(**could have**\),
   8. flow control / QoS mechanisms for multiplexed streams. 
 
-## Message format 
+## Message format
 
 Messages exchanged by the built-in protocols the library are \(de\)serialized with Protobuf. This does not impose the serialization method for higher-level \(i.e. application\) protocols, however this method of serialization is highly recommended.
 
@@ -76,17 +76,15 @@ This section describes the public programming interface exposed by the **golem-n
 | broadcast | Message | FutureResult&lt;\(\), Error&gt; | Broadcast a message |
 | close | \(\) | FutureResult&lt;\(\), Error&gt; | Terminate |
 
-### Address ****
+### Address _\*\*_
 
-**net API** uses a common addressing mechanism \(e.g. IPFS multiaddr\), consisting of:  
-
+**net API** uses a common addressing mechanism \(e.g. IPFS multiaddr\), consisting of:
 
 * * * networking protocol and connection details \(e.g. an IPv4 address\)
     * transport protocol and connection details \(e.g. port within an established TCP session\)
     * application protocol and connection details \(e.g. HTTP and resource URI\)
     * optional relay node information
 
-  
 In particular, the address might only include the application protocol + ID and rely solely on node / service discovery.
 
 ### NetworkOptions
@@ -96,7 +94,7 @@ In particular, the address might only include the application protocol + ID and 
     * relevant custom intervals
     * TBD
 
-### ChannelTrait 
+### ChannelTrait
 
 | **Name** | **Arguments** | **Return value** | **Description** |
 | :--- | :--- | :--- | :--- |
@@ -105,8 +103,7 @@ In particular, the address might only include the application protocol + ID and 
 | state | \(\) | FutureResult &lt;impl ChannelStateTrait, Error&gt; | Retrieve channel state info |
 | metrics | \(\) | FutureResult &lt;impl ChannelMetricsTrait, Error&gt; | Retrieve channel metrics |
 
-  
- Implemented by Channel and MulticastChannel structs.
+Implemented by Channel and MulticastChannel structs.
 
 ### MulticastChannel \(impl ChannelTrait\) methods
 
@@ -122,21 +119,17 @@ In particular, the address might only include the application protocol + ID and 
       2. List of open channels
       3. Means of discovery
       4. Routing details
-
-  1. ChannelMetrics
-     * TBD: per connection \(transport\) metrics
-     * TBD: summarized connection metrics for node 
+  * ChannelMetrics
+    * TBD: per connection \(transport\) metrics
+    * TBD: summarized connection metrics for node 
 
 ## High-level architecture
 
-External logic communicates with **golem-net** via an asynchronous, event-based system. The library allows for interfacing multiple, various inter-thread and inter-process communication mechanisms and allows them to operate simultaneously.  
-
+External logic communicates with **golem-net** via an asynchronous, event-based system. The library allows for interfacing multiple, various inter-thread and inter-process communication mechanisms and allows them to operate simultaneously.
 
 * 1. IPC interface \(**net API**\)
 
-  
-**golem-net** provides an IPC layer supporting macOS, Linux and Windows platforms. The default implementation is based on Unix sockets and named pipes in case of Windows.  
-
+**golem-net** provides an IPC layer supporting macOS, Linux and Windows platforms. The default implementation is based on Unix sockets and named pipes in case of Windows.
 
 | net evt publisher → | → IPC tx | → | → IPC rx | → poll evt |
 | :--- | :--- | :--- | :--- | :--- |
@@ -160,8 +153,7 @@ External logic communicates with **golem-net** via an asynchronous, event-based 
 
 * 1. Rust Python bindings
 
-Builds on Rust’s native interface, placing external logic in a separate thread. That thread may block \(i.e. lock the GIL\) without interrupting the networking thread.  
-
+Builds on Rust’s native interface, placing external logic in a separate thread. That thread may block \(i.e. lock the GIL\) without interrupting the networking thread.
 
 | net evt publisher → | → MPSC net tx | → | → MPSC net rx | → poll evt |
 | :--- | :--- | :--- | :--- | :--- |
@@ -171,8 +163,7 @@ Builds on Rust’s native interface, placing external logic in a separate thread
 | Networking stack | Python bindings \(external logic\) |  |  |  |
 | Networking thread | Python integration thread |  |  |  |
 
-Integration with **golem-core** may be done as a full reimplementation of a networking stack or a basic one, passing binary blobs from and to the session logic written in Python.  
-
+Integration with **golem-core** may be done as a full reimplementation of a networking stack or a basic one, passing binary blobs from and to the session logic written in Python.
 
 * * * Re-implementation
       1. full network stack

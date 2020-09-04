@@ -36,9 +36,9 @@ Note: An error happening on any state transition may be fatal and thus lead to A
 
 Three layers can be defined within the Activity API logical structure:
 
-**Activity API Operations** - includes Activity API operations which are available to Requestor App as API calls. These are high-level [Control]() and [State]() operations as described further in the document.
+**Activity API Operations** - includes Activity API operations which are available to Requestor App as API calls. These are high-level [Control](golem-activity-api.md) and [State](golem-activity-api.md) operations as described further in the document.
 
-**ExeUnit Operations** - includes operations requested directly from Provider App’s ExeUnit via Exec\(\) call which executes [ExeScript]() command batches.
+**ExeUnit Operations** - includes operations requested directly from Provider App’s ExeUnit via Exec\(\) call which executes [ExeScript](golem-activity-api.md) command batches.
 
 **App SDK Operations** - includes operations available to an App running within the ExeUnit - effectively a standardized way via which a hosted Provider App can communicate with Golem ecosystem. NOTE: this layer is out-of-scope of initial edition of Activity API.
 
@@ -67,7 +67,7 @@ The basic flow of Activity control is illustrated below:
 **Notes:**
 
 * The Activity is initiated via explicit CreateActivity\(\) call, which is expected to return a unique ActivityID. All other operations related to that Activity shall be labelled with this ActivityID.
-* All other control over Activity is exercised via ExeScript commands \(see [below]() for more information on ExeScript\).
+* All other control over Activity is exercised via ExeScript commands \(see [below](golem-activity-api.md) for more information on ExeScript\).
 * The ExeScript block sent by Activity API client shall be routed directly to the ExeUnit instance by the Activity API Requestor implementation. The Exec\(\) call shall marshall a collection of commands.
   * Note that the body of a command is obscure to the Golem Daemon infrastructure \(Activity API, Activity Manager\) - eventually it shall be routed to the relevant ExeUnit where the command body may be decoded \(this is especially relevant to scenarios where the command content is encrypted end-to-end between Requestor and the ExeUnit implementation, eg. in SGX-enabled scenarios\)
 * As the ExeScript command block is received by the ExeUnit instance, the commands are interpreted, and executed, eg.:
@@ -118,7 +118,7 @@ Executes a set of ExeScript commands in the context of created Activity.
 
 **Description:**
 
-* The Exec\(\) method must implement the ExeScript execution model \(as described [here]()\)
+* The Exec\(\) method must implement the ExeScript execution model \(as described [here](golem-activity-api.md)\)
 
 **GetExecBatchResults\(ActivityID, BatchID\)**
 
@@ -141,7 +141,7 @@ Collects the result sets returned while ExeScript batch is executing.
 
 **Description:**
 
-* The GetExecBatchResults\(\) method implements the ExeScript execution results model \(as described [here]()\)
+* The GetExecBatchResults\(\) method implements the ExeScript execution results model \(as described [here](golem-activity-api.md)\)
 
 **DestroyActivity\(ActivityID\)**
 
@@ -353,7 +353,7 @@ TRANSFER &lt;source uri&gt; &lt;target uri&gt;
 
 * Fetch content from CDN and place in container’s local filesystem:
 
-TRANSFER https://cdn.dblah.com/c34ba6512ca /images/thumb1.jpg
+TRANSFER [https://cdn.dblah.com/c34ba6512ca](https://cdn.dblah.com/c34ba6512ca) /images/thumb1.jpg
 
 * Send content from Requestor’s filesystem to container’s filesystem \(on Provider side\). Sequence is as follows:
 
@@ -373,7 +373,7 @@ The ExeUnit uploads the output.jpg file to the prepared placeholder.
 
 * Send output from container’s filesystem to some web location via HTTP/S
 
-TRANSFER /output/render.jpg https://dropbox.com/c34ba6512ca
+TRANSFER /output/render.jpg [https://dropbox.com/c34ba6512ca](https://dropbox.com/c34ba6512ca)
 
 **Commands for consideration**
 

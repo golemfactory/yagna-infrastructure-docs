@@ -84,13 +84,12 @@ A general sequence in this model is as follows:
 
 1. Provider generates an open Offer object and publishes it in the Golem network.
 2. Matching mechanism allows the Requestor to “browse” relevant Offers.
-3. The Requestor selects a preferred Offer published by a specific Provider and:
-   1. Formulates a targeted Demand and sends it to that Provider
+3. The Requestor selects a preferred Offer published by a specific Provider and: 1. Formulates a targeted Demand and sends it to that Provider
 
- In this model, following features can be attributed:
+   In this model, following features can be attributed:
 
-* Offer - open \(non-targeted\), potentially long living
-* Demand - targeted \(at a specific Provider\), related to specific Offer, short-lived
+4. Offer - open \(non-targeted\), potentially long living
+5. Demand - targeted \(at a specific Provider\), related to specific Offer, short-lived
 
 Note that in this respect, the Advertise model is symmetric to the Auction model.
 
@@ -116,7 +115,7 @@ Therefore instead of exactly one matching Offer for a Demand, the matching mecha
 
 ![](../.gitbook/assets/2%20%281%29.png)
 
-**For consideration:** It may be useful to come up with algorithm which allows to identify a “candidate” set of edges in this graph, optimizing some arbitrarily defined metric. With such feature, the strategic control units may be able to execute their behavioral strategies by setting criteria on the matching mechanism - potentially making the execution more efficient. See [Matching Optimization]().
+**For consideration:** It may be useful to come up with algorithm which allows to identify a “candidate” set of edges in this graph, optimizing some arbitrarily defined metric. With such feature, the strategic control units may be able to execute their behavioral strategies by setting criteria on the matching mechanism - potentially making the execution more efficient. See [Matching Optimization](golem-demand-and-offer-matching.md).
 
 #### Applicability of Order Book concept
 
@@ -187,26 +186,22 @@ The Race Conditions are considered a minor problem, and with expected market imb
 
 #### Response time
 
- - _what is the maximum acceptable latency incurred by matching mechanism \(excluding the time spent by nodes on processing incoming objects\)?_
+* _what is the maximum acceptable latency incurred by matching mechanism \(excluding the time spent by nodes on processing incoming objects\)?_
 
 #### Efficiency
 
-- How much network traffic does the solution generate?
-
-- The matching mechanism must be “selective” so that it is capable of picking most appropriate matches from the network without the need for a requesting node to process responses from all potential counterparties.
+* How much network traffic does the solution generate?
+* The matching mechanism must be “selective” so that it is capable of picking most appropriate matches from the network without the need for a requesting node to process responses from all potential counterparties.
 
 #### Robustness, resilience to attacks
 
- - This includes resistance to D/DoS attacks \(eg. prevent a situation where one Requestor’s Demand causes a flood of Providers’ Offers, see ‘Efficiency’\)
+* This includes resistance to D/DoS attacks \(eg. prevent a situation where one Requestor’s Demand causes a flood of Providers’ Offers, see ‘Efficiency’\)
 
 #### Transparency
 
- - The mechanism must provide ability to browse the “marketplace”, see the currently open Offers & Demands
-
+* The mechanism must provide ability to browse the “marketplace”, see the currently open Offers & Demands
 * This includes also ability to view some history of Offers & Demands
 * The browse feature must also be ‘selective’ ie. must provide ability to query the “marketplace” using criteria/filters
-
-## 
 
 ## Use Case Scenarios
 
@@ -380,7 +375,7 @@ TODO
 This scenario illustrates following circumstances:
 
 * Requestor defines ezoteric, non-trivial computation resource demands which in large part are implemented in the Requestor’s Strategy Control Unit \(we illustrate execution of complex Offer selection optimization logic leveraging a rudimentary Market API\)
-* The Offers obtained in low-level matching are non-exclusive \(see [NonExclusive Offers]()\) which means that the optimization of the Offer choice needs to be made in a “quasi-atomic” manner - there is a need to implement some sort of algorithm to actively work around the fact of “non-exclusivity” - in fact the broker needs to become a distributed transaction coordinator.
+* The Offers obtained in low-level matching are non-exclusive \(see [NonExclusive Offers](golem-demand-and-offer-matching.md)\) which means that the optimization of the Offer choice needs to be made in a “quasi-atomic” manner - there is a need to implement some sort of algorithm to actively work around the fact of “non-exclusivity” - in fact the broker needs to become a distributed transaction coordinator.
 
 **Definition:**
 
@@ -486,13 +481,12 @@ We assume the existence of a distributed \(p2p\) storage where all Offers reside
 * adding a new Offer
 * removing an existing one
 * retrieving all Offers \(or a subset based on some criteria\)
-
-1. Providers advertise their Offers through p2p network adding them to Storage.
-2. Requestor retrieves all Offers and filters them \(or retrieves with filter\) to find those matching his criteria.
-3. Requestor sends his Demand to N Providers which published top Offers \(offer ordering/scoring is up to Requestor\).
-4. Providers having resources available respond with an Offer tailored to this specific Demand.
-5. Requestor waits for Offers for an arbitrary amount of time. When there is a offer\(s\) that satisfy his needs, makes the final selection and sends Agreement to chosen Providers. Otherwise he need to repeat step 4 with next N Providers.
-6. Providers confirm or reject the Agreement.
+* Providers advertise their Offers through p2p network adding them to Storage.
+* Requestor retrieves all Offers and filters them \(or retrieves with filter\) to find those matching his criteria.
+* Requestor sends his Demand to N Providers which published top Offers \(offer ordering/scoring is up to Requestor\).
+* Providers having resources available respond with an Offer tailored to this specific Demand.
+* Requestor waits for Offers for an arbitrary amount of time. When there is a offer\(s\) that satisfy his needs, makes the final selection and sends Agreement to chosen Providers. Otherwise he need to repeat step 4 with next N Providers.
+* Providers confirm or reject the Agreement.
 
 Notes:
 
@@ -578,11 +572,11 @@ golem.contract.payment.scheme=\['pay-as-you-go'\]
 
 \(&\(golem.inf.ram.gb&gt;=1\)
 
- \(golem.inf.cpu.platform=x86\)
+\(golem.inf.cpu.platform=x86\)
 
- \(vm.platform=\*\)
+\(vm.platform=\*\)
 
- \(**golem.inet.canConnectTo.tcp{www.onet.pl:443}=true**\)
+\(**golem.inet.canConnectTo.tcp{www.onet.pl:443}=true**\)
 
 \)
 
