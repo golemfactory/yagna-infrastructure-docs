@@ -1,0 +1,3 @@
+[submodule "yagna"]
+	path = yagna
+	url = https://github.com/golemfactory/yagna.git

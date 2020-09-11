@@ -1,0 +1,28 @@
+name: List MD Files
+on:
+  push:
+
+jobs:
+  listmd:
+    name: List MD files from submodules
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+        # This script will find all the .md extension files from given submodules 
+        #
+        # find $submodules          = look into all submodule folders
+        # -not -path '*/\.*'        = exclude hidden folders, starting with dot, like .github/
+        # -regex ".*\.\(md\)"       = only md files
+        #
+      - name: List mds
+        run: |
+          submodules=$(git config --file .gitmodules --get-regexp path | awk 'BEGIN { ORS=" " }; { print $2 }')
+          find $submodules -not -path '*/\.*' -regex ".*\.\(md\)" | while read line; do
+            echo $line
+          done

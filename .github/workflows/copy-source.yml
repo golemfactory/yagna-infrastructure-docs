@@ -1,0 +1,32 @@
+name: Copy MD Files
+on:
+  push:
+    paths:
+      - 'map.txt'
+    branches:
+      - master
+  
+jobs:
+  copymd:
+    name: Copy MD files from submodules
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          submodules: true
+
+      - name: Copy mds
+        run: |
+            while IFS="=" read -r key value; do
+              echo "Copying '$key' to '$value'"
+              mkdir -p `dirname ./$value`
+              cp -- ./${key} ./${value}
+            done < "./map.txt"
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+            base: prod
