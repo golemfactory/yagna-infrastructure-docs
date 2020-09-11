@@ -1,3 +1,6 @@
 [submodule "yagna"]
 	path = yagna
 	url = https://github.com/golemfactory/yagna.git
+[submodule "source"]
+	path = source
+	url = https://github.com/rad9k/source.git
