@@ -528,7 +528,7 @@ A Pay-as-you-golem scenario, where incremental Debit Notes are issued in paralle
 
 ### Various Payment Platforms
 
-\(TODO\)Allow Requestor/Provider to choose Payment Platforms while the Activity is up and running...
+\(TODO\)Allow Requestor/Provider to choose Payment Platforms while the Activity is up and running.
 
 ## Implementation notes
 

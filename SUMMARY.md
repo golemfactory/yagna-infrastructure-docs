@@ -33,7 +33,7 @@
 
 ## Golem Licensing Patterns
 
-* [Golem Payment API](golem-licensing-patterns/untitled.md)
+* [Golem Payment API](golem-licensing-patterns/golem-payment-api.md)
 
 ## Golem Event API
 
