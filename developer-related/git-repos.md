@@ -1,10 +1,10 @@
 # Git repos
 
-## Main LWG repo
+## Main yagna repo
 
 [https://github.com/golemfactory/yagna](https://github.com/golemfactory/yagna)
 
-## Integration
+## Yagna integration
 
 [https://github.com/golemfactory/yagna-integration](https://github.com/golemfactory/yagna-integration)
 

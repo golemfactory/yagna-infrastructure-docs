@@ -16,9 +16,7 @@ Invoicing and Payments is a fundamental area of Golem Ecosystem functionality. I
 
 An important principle of the Golem Payment API is that the actual payment transactions are hidden behind the Invoice flow. In other words, a Golem Application on Requestor side isn’t expected to trigger actual payment transactions. Instead it is expected to receive and accept Invoices raised by the Provider - based on Application’s Invoice Accept notifications, the Payment API implementation orchestrates the payment via a configured Payment platform.
 
-Note that the concept of integration of Payment Platform client in the Payment API implementation has a number of advantages:
-
-![](../.gitbook/assets/0.png)
+[![](../.gitbook/assets/0%20%283%29.png)](https://www.draw.io/?page-id=5f0bae14-7c28-e335-631c-24af17079c00&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)Note that the concept of integration of Payment Platform client in the Payment API implementation has a number of advantages:
 
 * Developers of Requestor-side Applications don’t need to be bothered with details of Payment Platform integration, transaction mechanics, portfolio key management, etc.
 * Payment API implementations are able to optimize the payment mechanics \(eg. reduce cost of Ethereum transactions by leveraging payment batching\) or even select various Payment Platforms \(eg. Plasma, once mature, seems a potent payment mechanism for micro-transactions\).
@@ -27,13 +25,15 @@ The Payment API specificies minimum functionality that Payment Platform must pro
 
 ## Domain Model
 
+For up-to-date model see here: [https://github.com/golemfactory/ya-client/tree/master/model/src/payment](https://github.com/golemfactory/ya-client/tree/master/model/src/payment)
+
 The following diagram illustrates the relationships between entities in the Invoice/Payment domain:
 
-![](../.gitbook/assets/1.png)
+[![](../.gitbook/assets/1%20%281%29.png)](https://www.draw.io/?page-id=H1hSABSd9k3SNJv0G0wf&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
 
 ### Debit Note
 
-A Debit Note is an artifact issued by the Provider to the Requestor, in the context of a specific Agreement. It is a notification of Total Amount Due incurred by Activites in this Agreement until the moment the Debit Note is issued. This is expected to be used as trigger for payment in upfront-payment or pay-as-you-go scenarios.
+A Debit Note is an artifact issued by the Provider to the Requestor, in the context of a specific Activity. It is a notification of Total Amount Due incurred by Activity until the moment the Debit Note is issued. This is expected to be used as trigger for payment in upfront-payment or pay-as-you-go scenarios.
 
 A Debit Note contains:
 
@@ -41,8 +41,8 @@ A Debit Note contains:
 * \(Optional\) Previous Debit Note Id - points at the last Debit Note issued in this Agreement - the Debit Note Ids shall be monotonously increasing and will enable arranging the Debit Notes in a sequence
 * Timestamp
 * Agreement Id \(Hash?\)
-* \(Optional\) Activity Id
-* Total Amount Due - total, aggregated Amount Due incurred by this Agreement - this will monotonously increase with each subsequent invoice and will be helpful in reconciliation.
+* Activity Id
+* Total Amount Due - total, aggregated Amount Due incurred by this Activity- this will monotonously increase with each subsequent invoice and will be helpful in reconciliation.
 * \(Optional\) Usage Counter Vector \(basis for amount\)
 * Credit Account Id
 * \(Optional\) Payment Platform - if specified, indicated Provider requests a specific platform to be used for payment of this Debit Note
@@ -50,7 +50,7 @@ A Debit Note contains:
 
 **Notes:**
 
-* Debit Notes flag the current Total Amount Due, which is accumulated from the start of Agreement. Debit Notes are expected to trigger payments, therefore payment amount for the newly received Debit Note is expected to be determined by difference of Total Payments for the Agreement vs Total Amount Due.
+* Debit Notes flag the current Total Amount Due, which is accumulated from the start of Activity. Debit Notes are expected to trigger payments, therefore payment amount for the newly received Debit Note is expected to be determined by difference of Total Payments for the Agreement vs Total Amount Due.
 * A Debit Note can be issued even before any Activity is started in the context of an Agreement \(eg. in one off, “fire-and-forget” payment regime\).
 
 ### Invoice
@@ -59,29 +59,28 @@ An Invoice is an artifact issued by the Provider to the Requestor, in the contex
 
 * It indicates the total Amount owed by the Requestor in this Agreement.
 * No further Debit Notes shall be issued after the Invoice is issued.
-* The Invoice is the last payment related artifact issued within an Agreement.
+* \(Delete???\) The Invoice is the last payment related artifact issued within an Agreement.
   * Note this implies the Provider Agent shall not allow any Activity execution after the Invoice is issued.
 
 An Invoice contains:
 
 * Invoice Id
-* \(Optional\) Last Debit Note Id - points at the last Debit Note issued in this Agreement
 * Timestamp
 * Agreement Id \(Hash?\)
 * \(Optional\) Activity Ids
 * Amount
 * \(Optional\) Usage Counter Vector \(basis for amount\)
 * Credit Account Id
-* \(Optional\) Payment Platform - if specified, indicated Provider requests a specific platform to be used for payment for this Invoice
+* Payment Platform - if specified, indicated Provider requests a specific platform to be used for payment for this Invoice
 * Payment Due Date
 
 **Notes:**
 
-* In one-off, “fire-and-forget” payment regime, an invoice can be issued after the Requestor has disconnected from the network. This is still OK for the Provider, as the payment has been already made on the basis of an originally issued Debit Note. However this also means the Invoice would not be delivered to the Requestor.
+* \(Rewrite???\) In one-off, “fire-and-forget” payment regime, an invoice can be issued after the Requestor has disconnected from the network. This is still OK for the Provider, as the payment has been already made on the basis of an originally issued Debit Note. However this also means the Invoice would not be delivered to the Requestor.
 
 #### Invoice/Debit Note State Diagram
 
-![](../.gitbook/assets/2%20%284%29.png)
+[![](../.gitbook/assets/2%20%283%29.png)](https://www.draw.io/?page-id=c-9p_Okk2X7Fl-_ElMV4&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
 
 **Notes:**
 
@@ -503,19 +502,19 @@ Operation to extract the details of a Payment.
 
 A basic scenario where the Invoice is issued after the Activity is completed/stopped. No Debit Notes are raised in this scenario.
 
-![](../.gitbook/assets/3.png)
+[![](../.gitbook/assets/3%20%284%29.png)](https://www.draw.io/?page-id=HbqE77fVTndp3-YV_QaN&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
 
 ### One-off payment “before”
 
-A scenario where the Provider requires a Debit Note to be accepted before the Activity can be started. After the Activity is completed, an Invoice is issued.
+\(Rewrite??? Including diagram…\) A scenario where the Provider requires a Debit Note to be accepted before the Activity can be started. After the Activity is completed, an Invoice is issued.
 
-![](../.gitbook/assets/4%20%281%29.png)
+[![](../.gitbook/assets/4%20%283%29.png)](https://www.draw.io/?page-id=-dTypfJA6ICLjqvOgBU1&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
 
 ### Pay-as-you-golem
 
 A Pay-as-you-golem scenario, where incremental Debit Notes are issued in parallel with Activity execution. Once Activity is stopped, a closing Invoice is issued.
 
-![](../.gitbook/assets/5.png)
+[![](../.gitbook/assets/5%20%281%29.png)](https://www.draw.io/?page-id=0hk0jfGZhpddxrdITBjT&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
 
 ### Settlement of overpaid charges
 
