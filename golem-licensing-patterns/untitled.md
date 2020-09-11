@@ -16,7 +16,9 @@ Invoicing and Payments is a fundamental area of Golem Ecosystem functionality. I
 
 An important principle of the Golem Payment API is that the actual payment transactions are hidden behind the Invoice flow. In other words, a Golem Application on Requestor side isn’t expected to trigger actual payment transactions. Instead it is expected to receive and accept Invoices raised by the Provider - based on Application’s Invoice Accept notifications, the Payment API implementation orchestrates the payment via a configured Payment platform.
 
-[![](../.gitbook/assets/0%20%283%29.png)](https://www.draw.io/?page-id=5f0bae14-7c28-e335-631c-24af17079c00&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)Note that the concept of integration of Payment Platform client in the Payment API implementation has a number of advantages:
+Note that the concept of integration of Payment Platform client in the Payment API implementation has a number of advantages:
+
+![](../.gitbook/assets/0%20%283%29.png)
 
 * Developers of Requestor-side Applications don’t need to be bothered with details of Payment Platform integration, transaction mechanics, portfolio key management, etc.
 * Payment API implementations are able to optimize the payment mechanics \(eg. reduce cost of Ethereum transactions by leveraging payment batching\) or even select various Payment Platforms \(eg. Plasma, once mature, seems a potent payment mechanism for micro-transactions\).
@@ -29,7 +31,7 @@ For up-to-date model see here: [https://github.com/golemfactory/ya-client/tree/m
 
 The following diagram illustrates the relationships between entities in the Invoice/Payment domain:
 
-[![](../.gitbook/assets/1%20%281%29.png)](https://www.draw.io/?page-id=H1hSABSd9k3SNJv0G0wf&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
+![](../.gitbook/assets/1%20%281%29.png)
 
 ### Debit Note
 
@@ -80,7 +82,7 @@ An Invoice contains:
 
 #### Invoice/Debit Note State Diagram
 
-[![](../.gitbook/assets/2%20%283%29.png)](https://www.draw.io/?page-id=c-9p_Okk2X7Fl-_ElMV4&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
+![](../.gitbook/assets/2%20%283%29.png)
 
 **Notes:**
 
@@ -502,19 +504,19 @@ Operation to extract the details of a Payment.
 
 A basic scenario where the Invoice is issued after the Activity is completed/stopped. No Debit Notes are raised in this scenario.
 
-[![](../.gitbook/assets/3%20%284%29.png)](https://www.draw.io/?page-id=HbqE77fVTndp3-YV_QaN&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
+![](../.gitbook/assets/3%20%284%29.png)
 
 ### One-off payment “before”
 
 \(Rewrite??? Including diagram…\) A scenario where the Provider requires a Debit Note to be accepted before the Activity can be started. After the Activity is completed, an Invoice is issued.
 
-[![](../.gitbook/assets/4%20%283%29.png)](https://www.draw.io/?page-id=-dTypfJA6ICLjqvOgBU1&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
+![](../.gitbook/assets/4%20%283%29.png)
 
 ### Pay-as-you-golem
 
 A Pay-as-you-golem scenario, where incremental Debit Notes are issued in parallel with Activity execution. Once Activity is stopped, a closing Invoice is issued.
 
-[![](../.gitbook/assets/5%20%281%29.png)](https://www.draw.io/?page-id=0hk0jfGZhpddxrdITBjT&scale=auto#G1AgdoVBfpE-eMHoLxMcDC9NEkquDnq4ch)
+![](../.gitbook/assets/5%20%281%29.png)
 
 ### Settlement of overpaid charges
 
