@@ -1,4 +1,4 @@
 # Golem infrastructure documentation
 
-Y
+YYY
 
