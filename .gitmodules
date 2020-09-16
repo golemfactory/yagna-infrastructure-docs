@@ -4,3 +4,21 @@
 [submodule "source"]
 	path = source
 	url = https://github.com/rad9k/source.git
+[submodule "yagna-integration"]
+	path = yagna-integration
+	url = https://github.com/golemfactory/yagna-integration.git
+[submodule "yagna-testnet-scripts"]
+	path = yagna-testnet-scripts
+	url = https://github.com/golemfactory/yagna-testnet-scripts.git
+[submodule "yagna-zksync"]
+	path = yagna-zksync
+	url = https://github.com/golemfactory/yagna-zksync.git
+[submodule "ya-net-p2p"]
+	path = ya-net-p2p
+	url = https://github.com/golemfactory/ya-net-p2p.git
+[submodule "ya-py-aioclient"]
+	path = ya-py-aioclient
+	url = https://github.com/golemfactory/ya-py-aioclient.git
+[submodule "ya-runtime-wasi"]
+	path = ya-runtime-wasi
+	url = https://github.com/golemfactory/ya-runtime-wasi.git
