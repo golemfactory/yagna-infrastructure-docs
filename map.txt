@@ -1,6 +1,6 @@
 yagna/README.md=from_golem_repos/yagna-README.md
 yagna/agent/provider/readme.md=from_golem_repos/yagna-agent-provider-readme.md
-yagna/gftp/readme.md=from_golem_repos/yagna-gftp-readme.md
+yagna/core/gftp/readme.md=from_golem_repos/yagna-gftp-readme.md
 yagna/docs/development-plan.md=from_golem_repos/yagna-docs-development-plan.md
 yagna/docs/net-api/net-mk1-hub.md=from_golem_repos/yagna-docs-net-mk1-hub.md
 yagna/docs/net-api/service-bus/ysb-api-concept.md=from_golem_repos/yagna-docs-net-api-ysb-api-concept.md
