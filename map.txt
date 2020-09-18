@@ -1,4 +1,4 @@
-yagna/README.md=from_golem_repos/yagna-README.md
+yagna/README.md=from_golem_repos/yagna-README.md 
 yagna/agent/provider/readme.md=from_golem_repos/yagna-agent-provider-readme.md
 yagna/core/gftp/readme.md=from_golem_repos/yagna-gftp-readme.md
 yagna/docs/development-plan.md=from_golem_repos/yagna-docs-development-plan.md
