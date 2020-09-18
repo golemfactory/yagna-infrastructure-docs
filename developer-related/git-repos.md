@@ -8,7 +8,13 @@
 
 [https://github.com/golemfactory/yagna-integration](https://github.com/golemfactory/yagna-integration)
 
-## GWASM runner
+## YAPAPI
 
-[https://github.com/golemfactory/gwasm-runner](https://github.com/golemfactory/gwasm-runner)
+[https://github.com/golemfactory/yapapi](https://github.com/golemfactory/yapapi)
+
+## YAJSAPI
+
+[https://github.com/golemfactory/yajsapi](https://github.com/golemfactory/yajsapi)
+
+
 

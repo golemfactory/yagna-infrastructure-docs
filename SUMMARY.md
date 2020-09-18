@@ -9,35 +9,13 @@
 ## architecture
 
 * [Golem Architecture Principles](architecture/untitled.md)
-
-## golem-net
-
-* [Golem net](golem-net/golem-net-1.md)
-
-## Demand&Offer Specification Language
-
-* [Golem Demand & Offer Specification Language](demand-and-offer-specification-language/golem-demand-and-offer-specification-language.md)
-
-## Golem Market Protocol <a id="golem-computing-resource-standards"></a>
-
-* [Golem Market API](golem-computing-resource-standards/golem-market-api.md)
-* [Golem Demand&Offer Matching](golem-computing-resource-standards/golem-demand-and-offer-matching.md)
-
-## Golem Activity Protocol
-
-* [Golem Activity API](golem-activity-protocol/golem-activity-api.md)
-
-## Golem Host
-
-* [Golem Client evolution roadmap](golem-host/golem-client-evolution-roadmap.md)
-
-## Golem Licensing Patterns
-
-* [Golem Payment API](golem-licensing-patterns/golem-payment-api.md)
-
-## Golem Event API
-
-* [Golem Event API](golem-event-api/golem-event-api.md)
+* [Golem Event API](architecture/golem-event-api.md)
+* [Golem Activity API](architecture/golem-activity-api.md)
+* [Golem Market API](architecture/golem-market-api.md)
+* [Golem Demand&Offer Matching](architecture/golem-demand-and-offer-matching.md)
+* [Golem Demand & Offer Specification Language](architecture/golem-demand-and-offer-specification-language.md)
+* [Golem net](architecture/golem-net-1.md)
+* [Golem Client evolution roadmap](architecture/golem-client-evolution-roadmap.md)
 
 ## developer related
 
