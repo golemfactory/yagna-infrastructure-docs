@@ -31,9 +31,9 @@
 
 ## yapapi repo
 
+* [README](from_golem_repos/yapapi-README.md)
 * [docs-Low-Level-Api](from_golem_repos/yapapi-docs-Low-Level-Api.md)
 * [docs-VM-Tutorial](from_golem_repos/yapapi-docs-VM-Tutorial.md)
-* [README](from_golem_repos/yapapi-README.md)
 
 ## ya net p2p
 
