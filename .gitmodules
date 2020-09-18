@@ -22,3 +22,6 @@
 [submodule "ya-runtime-wasi"]
 	path = ya-runtime-wasi
 	url = https://github.com/golemfactory/ya-runtime-wasi.git
+[submodule "yapapi"]
+	path = yapapi
+	url = https://github.com/golemfactory/yapapi.git
