@@ -25,3 +25,6 @@
 [submodule "yapapi"]
 	path = yapapi
 	url = https://github.com/golemfactory/yapapi.git
+[submodule "yajsapi"]
+	path = yajsapi
+	url = https://github.com/golemfactory/yajsapi
