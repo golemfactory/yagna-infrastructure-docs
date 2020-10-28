@@ -1,3 +1,5 @@
+[TEST](from_golem_repos/yajsapi-README.md)
+
 # Table of contents
 
 * [Golem infrastructure documentation](README.md)
