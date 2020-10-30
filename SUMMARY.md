@@ -20,14 +20,14 @@
 ## yagna repo
 
 * [README](from_golem_repos/yagna-README.md)
-* [agent-provider-readme](from_golem_repos/yagna-agent-provider-readme.md)
-* [docs-development-plan](from_golem_repos/yagna-docs-development-plan.md)
-* [docs-net-mk1-hub](from_golem_repos/yagna-docs-net-mk1-hub.md)
-* [docs-service-bus-ysb-api-concept](from_golem_repos/yagna-docs-service-bus-ysb-api-concept.md)
-* [gftp-readme](from_golem_repos/yagna-gftp-readme.md)
-* [service-bus-README](from_golem_repos/yagna-service-bus-README.md)
-* [testnet-scripts-README](from_golem_repos/yagna-testnet-scripts-README.md)
-* [zksync-README](from_golem_repos/yagna-zksync-README.md)
+* [Provider Agent implementation](from_golem_repos/yagna-agent-provider-readme.md)
+* [Development Plan](from_golem_repos/yagna-docs-development-plan.md)
+* [YagnaNet](from_golem_repos/yagna-docs-net-mk1-hub.md)
+* [Service Bus concept](from_golem_repos/yagna-docs-service-bus-ysb-api-concept.md)
+* [Service bus readme](from_golem_repos/yagna-service-bus-README.md)
+* [gftp](from_golem_repos/yagna-gftp-readme.md)
+* [Testnet scripts](from_golem_repos/yagna-testnet-scripts-README.md)
+* [zksync readme](from_golem_repos/yagna-zksync-README.md)
 
 ## yapapi repo
 
