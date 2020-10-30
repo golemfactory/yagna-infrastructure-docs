@@ -19,7 +19,7 @@
 
 ## yagna repo
 
-* [README](from_golem_repos/yagna-README.md)
+* [Yagna readme](from_golem_repos/yagna-README.md)
 * [Provider Agent implementation](from_golem_repos/yagna-agent-provider-readme.md)
 * [Development Plan](from_golem_repos/yagna-docs-development-plan.md)
 * [YagnaNet](from_golem_repos/yagna-docs-net-mk1-hub.md)
@@ -31,54 +31,40 @@
 
 ## yapapi repo
 
-* [README](from_golem_repos/yapapi-README.md)
-* [docs-Low-Level-Api](from_golem_repos/yapapi-docs-Low-Level-Api.md)
-* [docs-VM-Tutorial](from_golem_repos/yapapi-docs-VM-Tutorial.md)
+* [yapapi readme](from_golem_repos/yapapi-README.md)
+* [Low Level Api](from_golem_repos/yapapi-docs-Low-Level-Api.md)
+* [VM tutorial](from_golem_repos/yapapi-docs-VM-Tutorial.md)
 
 ## yajsapi repo
 
-* [yajsapi-README](from_golem_repos/yajsapi-README.md)
+* [yajsapi readme](from_golem_repos/yajsapi-README.md)
 
 ## ya net p2p
 
-* [README](from_golem_repos/ya-net-p2p-README.md)
+* [ya net p2p readme](from_golem_repos/ya-net-p2p-README.md)
 
 ## ya py aioclient
 
-* [README](from_golem_repos/ya-py-aioclient-README.md)
+* [ya py aioclient readme](from_golem_repos/ya-py-aioclient-README.md)
 
 ## ya runtime wasi
 
-* [README](from_golem_repos/ya-runtime-wasi-README.md)
-* [crates-api-README](from_golem_repos/ya-runtime-wasi-crates-api-README.md)
+* [ya runtime wasi readme](from_golem_repos/ya-runtime-wasi-README.md)
+* [ya runtime wasi quickstart](from_golem_repos/ya-runtime-wasi-crates-api-README.md)
 
 ## yagna integration
 
-* [README](from_golem_repos/yagna-integration-README.md)
-* [docs-architecture](from_golem_repos/yagna-integration-docs-architecture.md)
-* [goth-api_monitor-README](from_golem_repos/yagna-integration-goth-api_monitor-README.md)
-* [activity-docs-ProviderApi](from_golem_repos/yagna-integration-model-activity-docs-ProviderApi.md)
-* [activity-docs-README](from_golem_repos/yagna-integration-model-activity-docs-README.md)
-* [activity-docs-RequestorControlApi](from_golem_repos/yagna-integration-model-activity-docs-RequestorControlApi.md)
-* [activity-docs-RequestorStateApi](from_golem_repos/yagna-integration-model-activity-docs-RequestorStateApi.md)
-* [market-docs-ProviderApi](from_golem_repos/yagna-integration-model-market-docs-ProviderApi.md)
-* [market-docs-RequestorApi](from_golem_repos/yagna-integration-model-market-docs-RequestorApi.md)
-* [market-README](from_golem_repos/yagna-integration-model-market-README.md)
-* [payment-docs-DebitNote](from_golem_repos/yagna-integration-model-payment-docs-DebitNote.md)
-* [payment-docs-Invoice](from_golem_repos/yagna-integration-model-payment-docs-Invoice.md)
-* [payment-docs-InvoiceStatus](from_golem_repos/yagna-integration-model-payment-docs-InvoiceStatus.md)
-* [payment-docs-ProviderApi](from_golem_repos/yagna-integration-model-payment-docs-ProviderApi.md)
-* [payment-docs-RequestorApi](from_golem_repos/yagna-integration-model-payment-docs-RequestorApi.md)
-* [model-payment-README](from_golem_repos/yagna-integration-model-payment-README.md)
-* [test-level0-mocked_client-README](from_golem_repos/yagna-integration-test-level0-mocked_client-README.md)
-* [test-level0-unix-README](from_golem_repos/yagna-integration-test-level0-unix-README.md)
+* [yagna integration readme](from_golem_repos/yagna-integration-README.md)
+* [API Calls Tracer](from_golem_repos/yagna-integration-goth-api_monitor-README.md)
+* [Level 0 readme](from_golem_repos/yagna-integration-test-level0-mocked_client-README.md)
+* [Level 0 scripts](from_golem_repos/yagna-integration-test-level0-unix-README.md)
 
 ## developer related
 
 * [Developer's entry point](developer-related/developers-entry-point.md)
 * [Git repos](developer-related/git-repos.md)
 
-## Other golem related
+## Golem SDK documentation
 
-* [Golem SDK documentation](https://golem-network.gitbook.io/golem-sdk-docs-test/)
+* [Golem Handbook](https://handbook.golem.network/)
 
