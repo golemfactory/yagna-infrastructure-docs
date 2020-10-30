@@ -7,7 +7,6 @@ yagna/docs/net-api/net-mk1-hub.md=from_golem_repos/yagna-docs-net-mk1-hub.md
 yagna/docs/service-bus/ysb-api-concept.md=from_golem_repos/yagna-docs-service-bus-ysb-api-concept.md
 yagna/service-bus/README.md=from_golem_repos/yagna-service-bus-README.md
 yagna-integration/README.md=from_golem_repos/yagna-integration-README.md
-yagna-integration/docs/architecture.md=from_golem_repos/yagna-integration-docs-architecture.md
 yagna-integration/goth/api_monitor/README.md=from_golem_repos/yagna-integration-goth-api_monitor-README.md
 yagna-integration/model/activity/docs/ProviderApi.md=from_golem_repos/yagna-integration-model-activity-docs-ProviderApi.md
 yagna-integration/model/activity/docs/RequestorControlApi.md=from_golem_repos/yagna-integration-model-activity-docs-RequestorControlApi.md
