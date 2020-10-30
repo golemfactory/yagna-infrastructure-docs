@@ -1,7 +1,5 @@
 # Table of contents
 
-* [yajsapi-README](from_golem_repos/yajsapi-README.md)
-
 * [Golem infrastructure documentation](README.md)
 
 ## general
@@ -38,6 +36,8 @@
 * [docs-VM-Tutorial](from_golem_repos/yapapi-docs-VM-Tutorial.md)
 
 ## yajsapi repo
+
+* [yajsapi-README](from_golem_repos/yajsapi-README.md)
 
 ## ya net p2p
 
