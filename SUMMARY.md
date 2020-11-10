@@ -9,7 +9,7 @@
 * [Demand&Offer Matching](architecture/golem-demand-and-offer-matching.md)
 * [Market API](architecture/golem-market-api.md)
 * [Activity API](architecture/golem-activity-api.md)
-* [Event API](architecture/golem-event-api.md)
+* [Payment API](architecture/golem-payment-api.md)
 * [Technical concept](general/technical-concept.md)
 
 ## yagna repo
