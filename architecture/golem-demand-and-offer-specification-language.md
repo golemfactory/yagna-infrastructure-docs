@@ -1,4 +1,4 @@
-# Golem Demand & Offer Specification Language
+# Demand & Offer Specification Language
 
 ## Abstract
 

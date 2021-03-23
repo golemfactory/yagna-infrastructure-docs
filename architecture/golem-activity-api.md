@@ -1,4 +1,4 @@
-# Golem Activity API
+# Activity API
 
 Golem Activity API
 

@@ -2,7 +2,7 @@
 description: Problem Statement
 ---
 
-# Golem Demand&Offer Matching
+# Demand & Offer Matching
 
 ## Abstract
 
