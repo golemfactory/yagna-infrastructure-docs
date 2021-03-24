@@ -4,7 +4,5 @@ This is Golem internal infrastructure documentation. Those documentation resourc
 
 The documentation aimed at developers working on Golem based products is here:
 
-[https://golem-network.gitbook.io/golem-sdk-docs-test/](https://golem-network.gitbook.io/golem-sdk-docs-test/)
-
-
+[https://handbook.golem.network/](https://handbook.golem.network/)
 

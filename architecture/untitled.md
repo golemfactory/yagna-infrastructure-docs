@@ -1,10 +1,12 @@
-# Golem Architecture Principles
+# Principles
 
 ## Preamble
 
-All efforts around Golem platform architecture should derive from fundamental principles agreed by Golem stakeholders. Principles are general rules and guidelines, intended to be enduring and seldom amended, that inform and support the way in which an organization sets about fulfilling its mission.
+All efforts around Golem platform architecture should derive from fundamental principles agreed by Golem stakeholders. Principles are general rules and guidelines, intended to be enduring and seldom amended, that inform and support the way in which an organization sets about fulfilling its mission. 
 
 ## Business Principles
+
+
 
 ### Principle B0 - User is in control
 

@@ -1,16 +1,16 @@
 # Developer's entry point
 
-#### Rust
+## Rust
 
 [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
 
-#### IDE
+## IDE
 
 IntelliJ IDEA is nice
 
 [https://www.jetbrains.com/idea/download/?gclid=EAIaIQobChMI1MiD9uLO6QIVFO3tCh21wQ56EAAYASABEgJpdPD\_BwE\#section=windows](https://www.jetbrains.com/idea/download/?gclid=EAIaIQobChMI1MiD9uLO6QIVFO3tCh21wQ56EAAYASABEgJpdPD_BwE#section=windows)
 
-#### C++ compiler
+## C++ compiler
 
 * ms C++ compiler
 
@@ -20,7 +20,7 @@ for example [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https:/
 
 [https://osdn.net/projects/mingw/releases/](https://osdn.net/projects/mingw/releases/)
 
-#### other
+## other
 
 * openssl
 
@@ -28,7 +28,7 @@ for example [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https:/
 
   installation depends on os. first check if you already have it installed :\)
 
-#### hot to start
+## hot to start
 
 * clone repo
 
@@ -40,17 +40,12 @@ for example [https://visualstudio.microsoft.com/visual-cpp-build-tools/](https:/
 cargo build --workspace
 ```
 
-#### where to start reading?
+## where to start reading?
 
 * **Lightweight Golem MVP requirements**
-
-
-
 * **Yagna Technical Concept**
 
-
-
-#### **Where to start tinkering**
+## **Where to start tinkering**
 
 [https://github.com/golemfactory/yagna/tree/master/agent/provider](https://github.com/golemfactory/yagna/tree/master/agent/provider)
 

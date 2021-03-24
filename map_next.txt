@@ -1,0 +1,5 @@
+yagna/README.md=from_golem_repos/yagna-README.md
+source/README.md=from_golem_repos/test.md
+yagna/agent/provider/readme.md
+yagna/gftp/readme.md
+yagna/docs/development-plan.md
